@@ -11,14 +11,15 @@ const App = () => {
     setInput('')
   }
   return (
-    <div>
+    <div className='text-center bg-dark text-white w-screen h-screen'>
       <h2>StateMangement</h2>
        <input 
+       className='border border-black rounded-xl shadow-md text-black m-1 p-1'
        value={input}
        type='text'
        onChange={(e) => {setInput(e.target.value)}}
        />
-       <button onClick={handlebutton} >click me</button>
+       <button onClick={handlebutton} className='btn font-bold text-white' >click me</button >
        <ul>
         {items.map((item , index) => (
           <li key={index} > {item} </li>
