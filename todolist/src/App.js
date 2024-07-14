@@ -1,30 +1,42 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const App = () => {
-  const [input , setInput] = useState('');
+  const [input , setInput] = useState('')
   const [items , setItems] = useState([]);
-
-  const handlebutton = ( ) => {
-    if(input.trim()) {
-      setItems([...items , input]);
+  
+  const handlebtn = () => {
+    if(input.trim()){
+      setItems([...items , {text :input , infont : false}]);
     };
-    setInput('')
-  }
+    setInput('');
+  };
+
+  const handletext = (index) => {
+    const newItems = items.map((item , idx) => {
+      if(idx === item) {
+        return{   ...item , infont: !item.infont};
+      }
+      return item;
+    });
+    setItems(newItems)
+  } 
   return (
-    <div className='text-center bg-dark text-white w-screen h-screen'>
-      <h2>StateMangement</h2>
-       <input 
-       className='border border-black rounded-xl shadow-md text-black m-1 p-1'
-       value={input}
-       type='text'
-       onChange={(e) => {setInput(e.target.value)}}
-       />
-       <button onClick={handlebutton} className='btn font-bold text-white' >click me</button >
-       <ul>
-        {items.map((item , index) => (
-          <li key={index} > {item} </li>
+    <div>
+      <input 
+      value={input}
+      type='text'
+      onChange={(e) => setInput(e.target.value)}
+      />
+      <button onClick={handlebtn} >Add</button>
+      <ul>
+        {items.map((itme , index) => (
+          <li key={index} onClick={handletext(index)} className={`cursor-pointer ${itme.infont ?  'font-bold text-xl' : ''}`}>
+            <span>
+              {itme}
+            </span>
+          </li>
         ))}
-       </ul>
+      </ul>
     </div>
   )
 }
