@@ -12,7 +12,7 @@ const App = () => {
   };
   const handlechange = (index) => {
     const newitem = items.map((item , idx) => {
-      if(index === item){
+      if(idx === index){
         return{...item , font : !item.font }
       }
       return items;
@@ -35,7 +35,7 @@ const App = () => {
             <span style={{fontWeight : item.font ? 'bolder' : 'initial'}} >
               {item.text}
             </span>
-              <button onClick={handlechange(index)}>font</button>
+              <button onClick={() => handlechange(index)}>font</button>
           </li>
         ))}
       </ul>
