@@ -1,36 +1,28 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const App = () => {
-  const [input , setInput] = useState('');
+  const [input , setInput] = useState('')
   const [items , setItems] = useState([]);
 
-  const handleinput = () => {
-    if(input.trim()){
-      setItems([...items , { text: input, completed: false }])
+  const handlebutton = ( ) => {
+    if(input.trim()) {
+      setItems([...items , input]);
     };
-      setInput('');
-  };
-  const markcomplete = (index) => {
-    const newitems = ([...items]);
-    newitems[index].completed = true ;
-    setItems(newitems)
+    setInput('')
   }
   return (
-    <div>
-      <input 
-      type='text'
-      value={input}
-      onChange={(e) => setInput(e.target.value)}
-      />
-      <button onClick={handleinput}>click</button>
-      <ul>
+    <div className='text-center bg-dark text-white w-screen h-screen'>
+      <h2>StateMangement</h2>
+       <input 
+       className='border border-black rounded-xl shadow-md text-black m-1 p-1'
+       value={input}
+       type='text'
+       onChange={(e) => {setInput(e.target.value)}}
+       />
+       <button onClick={handlebutton} className='btn font-bold text-white' >click me</button >
+       <ul>
         {items.map((item , index) => (
-          <li key={index} style={{textDecoration : item.completed ? 'line-through' : 'none'}}>
-            {item.text} 
-            {!item.completed && (
-              <button onClick={() => markcomplete(index)}>Mark Completed</button>
-            )}
-            </li>
+          <li key={index} > {item} </li>
         ))}
       </ul>
     </div>
