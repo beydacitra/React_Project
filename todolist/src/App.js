@@ -1,43 +1,42 @@
-import { useState } from 'react';
+import React, {
+  useEffect,
+  useState,
+} from 'react';
 
 const App = () => {
-  const [input , setInput] = useState('')
-  const [items , setItems] = useState([]);
+  const [fulldate, setFullDate] = useState('');
 
-  const handlebutton = ( ) => {
-    if(input.trim()) {
-      setItems([...items , { text : input , font : false}]);
-    };
-    setInput('')
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newdate = new Date();
+      const year = newdate.getFullYear();
+      const month = newdate.getMonth() + 1; 
+      const day = newdate.getDate();
+      const second = newdate.getSeconds();
+
+      const currentDate = `${year}-${month}-${day} ${second}`;
+      setFullDate(currentDate);
+    }, 1000); 
+
+    return () => clearInterval(interval); 
+  }, []);  
+
+  const handleClick = () => {
+    // Clear the current date briefly
+    setFullDate('');
+    
+    // This will trigger the useEffect to update the date
+    // with the current time on the next interval tick
   };
-  const handleChange = (index) => {
-    const newitem = items.map((item , idx) => 
-      idx === index  ? {...item , font : !item.font } : item 
-    );
-    setItems(newitem);
-  }
+
   return (
-    <div className='text-center bg-dark text-white w-screen h-screen'>
-      <h2>Mangement</h2>
-       <input 
-       className='border border-black rounded-xl shadow-md text-black m-1 p-1'
-       value={input}
-       type='text'
-       onChange={(e) => {setInput(e.target.value)}}
-       />
-       <button onClick={handlebutton} className='btn font-bold text-white' >click me</button >
-       <ul>
-        {items.map((item , index) => (
-          <li key={index} >
-            <span style={{ fontWeight : item.font ? "bolder" : "initial" }} >
-              {item.text}
-            </span>
-              <button onClick={() => handleChange(index)}>bolder</button>
-          </li>
-        ))}
-      </ul>
+    <div className='flex justify-center'>
+      <button onClick={handleClick}>
+        Update Date
+      </button>
+      <h2>{fulldate}</h2>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
