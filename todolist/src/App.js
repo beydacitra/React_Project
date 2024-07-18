@@ -6,18 +6,15 @@ const App = () => {
 
   const handlebutton = ( ) => {
     if(input.trim()) {
-      setItems([...items , {text:input , font : false}]);
+      setItems([...items , { text : input , font : false}]);
     };
     setInput('')
   };
-  const handlechange = (index) => {
-    const newitem = items.map((item , idx) => {
-      if(idx === index){
-        return{...item , font : !item.font }
-      }
-      return items;
-    });
-    setItems(newitem)
+  const handleChange = (index) => {
+    const newitem = items.map((item , idx) => 
+      idx === index  ? {...item , font : !item.font } : item 
+    );
+    setItems(newitem);
   }
   return (
     <div className='text-center bg-dark text-white w-screen h-screen'>
@@ -32,10 +29,10 @@ const App = () => {
        <ul>
         {items.map((item , index) => (
           <li key={index} >
-            <span style={{fontWeight : item.font ? 'bolder' : 'initial'}} >
+            <span style={{ fontWeight : item.font ? "bolder" : "initial" }} >
               {item.text}
             </span>
-              <button onClick={() => handlechange(index)}>font</button>
+              <button onClick={() => handleChange(index)}>bolder</button>
           </li>
         ))}
       </ul>
