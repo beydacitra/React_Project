@@ -1,0 +1,33 @@
+/* import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
+import About from './About';
+import Contact from './Contact';
+import Home from './Home';
+import Navbar from './Navbar';
+import Services from './Services';
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <Navbar />
+        <div className="container mx-auto px-4 py-8">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/services" component={Services} />
+            <Route path="/contact" component={Contact} />
+            { Add more routes as needed }
+          </Switch>
+        </div>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+*/
