@@ -1,13 +1,17 @@
+import './App.css';
+
 import React from 'react';
 
+import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <Navbar/>  
-    </div>
-  )
+    <>
+      <Navbar/>
+      <Footer/>
+    </>
+  );
 }
 
-export default App
+export default App;
