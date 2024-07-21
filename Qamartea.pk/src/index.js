@@ -19,10 +19,10 @@ import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<Layout/>}>
+    <Route path='' element={<Layout/>}>
       <Route path='' element={<Home/>}/>
       <Route path='About' element={<About/>}/>
-      <Route path='Cotact' element={<Contact/>}/>
+      <Route path='contact' element={<Contact/>}/>
     </Route>
   )
 )
