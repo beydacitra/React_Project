@@ -10,7 +10,10 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
+<<<<<<< HEAD
 import Layout from './Layout';
+=======
+>>>>>>> 1265cbd32c5583e6b1354bcf24ff4f5afb28086d
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter(
@@ -31,4 +34,8 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+<<<<<<< HEAD
 reportWebVitals();
+=======
+reportWebVitals();
+>>>>>>> 1265cbd32c5583e6b1354bcf24ff4f5afb28086d

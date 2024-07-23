@@ -2,10 +2,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div>Header
-      header updated
-    </div>
+    <div>Header</div>
   )
 }
 
-export default Header
+export default Header;
