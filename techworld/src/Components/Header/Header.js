@@ -4,6 +4,7 @@ const Header = () => {
   return (
     <div>
       header
+      header is updated
     </div>
   );
 };
