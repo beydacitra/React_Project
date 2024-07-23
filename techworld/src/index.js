@@ -10,7 +10,6 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
-import Layout from './Layout';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter(
